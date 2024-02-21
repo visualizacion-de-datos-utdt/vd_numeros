@@ -1,4 +1,20 @@
-# Svelte + Vite
+# VD | Números
+
+### Visualización de datos cuantitativos con HTML, CSS, D3 y Svelte.
+
+---
+
+### Waffle Chart
+
+![Alt text](waffle.png)
+
+### Waffle Chart HTML Structure
+
+![Alt text](thumbnail.png)
+
+Referencia: [Making Data Viz Without SVG Using D3 & Flexbox](https://pudding.cool/process/flexbox-layout/)
+
+---
 
 This template should help get you started developing with Svelte in Vite.
 
@@ -42,6 +58,6 @@ If you have state that's important to retain within a component, consider creati
 ```js
 // store.js
 // An extremely simple external store
-import { writable } from 'svelte/store'
+import { writable } from "svelte/store"
 export default writable(0)
 ```
