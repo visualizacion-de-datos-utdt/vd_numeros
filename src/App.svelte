@@ -5,7 +5,7 @@
   // import person from "/images/person.png"
 
   let numbers = [5, 18, 29, 37, 75]
-  let numbersDivided5 = numbers.map((n) => Math.floor(n / 5))
+  let numbersDivided5 = numbers.map(n => Math.floor(n / 5))
 
   function altura(n) {
     let scale = d3.scaleLinear().domain(d3.extent(numbers)).range([15, 225])
@@ -36,17 +36,25 @@
 
     return points.join(" ")
   }
+
+  function arcGenerator({startAngle, endAngle, innerRadius, outerRadius}) {
+    return d3.arc()({
+      startAngle,
+      endAngle,
+      innerRadius,
+      outerRadius,
+    })
+  }
 </script>
 
 <main>
   <!-- ISOTYPE - Canal: altura -->
   <h3 class="headline">Dos magnitudes. Canal: longitud</h3>
   <div class="iso__container">
-   
-   <img style="height: 75px" src="/images/person-iso.svg" alt="person" />
-   <img style="height: 150px" src="/images/person-iso.svg" alt="person" />
+    <img style="height: 75px" src="/images/person-iso.svg" alt="person" />
+    <img style="height: 150px" src="/images/person-iso.svg" alt="person" />
   </div>
-  
+
   <!-- Canal: altura -->
   <h3 class="headline">Set magnitudes. Canal: longitud</h3>
   <div class="iso__container-big">
@@ -60,7 +68,9 @@
   </div>
 
   <!-- Canal: longitud. Type: Isotype Chart  -->
-  <h3 class="headline">Set magnitudes. Canal: longitud. Tipo: gráfco Isotype</h3>
+  <h3 class="headline">
+    Set magnitudes. Canal: longitud. Tipo: gráfco Isotype
+  </h3>
 
   <div class="iso__container-iso">
     {#each numbersDivided5 as n, index}
@@ -84,9 +94,9 @@
       {/each}
     </div>
   </div>
-    <!-- Poligonos - Canal: lados -->
-    <h3 class="headline">Set magnitudes. Canal: lados polígonos.</h3>
-    {#each numbers as n}
+  <!-- Poligonos - Canal: lados -->
+  <h3 class="headline">Set magnitudes. Canal: lados polígonos.</h3>
+  {#each numbers as n}
     <svg height="200" width="200">
       <polygon
         points={drawPolygon(sides(n))}
@@ -95,6 +105,22 @@
     </svg>
   {/each}
 
+  <!-- Draw svg arc -->
+  <h3 class="headline">Set magnitudes. Canal: longitud. Tipo: gráfco arco</h3>
+  <svg width="300" height="300" viewBox="0 0 300 300">
+    <path
+      d={arcGenerator({
+        startAngle: 0,
+        endAngle: Math.PI / 2,
+        innerRadius: 0,
+        outerRadius: 100,
+      })}
+      fill="black"
+      stroke="black"
+      stroke-width="3"
+      transform="translate(150, 150)"
+    />
+  </svg>
 </main>
 
 <style>
@@ -125,8 +151,8 @@
     justify-content: center;
   }
   .headline {
-   text-align: left;
-   margin-top: 50px;
+    text-align: left;
+    margin-top: 50px;
     /* border: 1px solid red; */
   }
 </style>
