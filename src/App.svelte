@@ -107,7 +107,7 @@
 
   <!-- Draw svg arc -->
   <h3 class="headline">Set magnitudes. Canal: longitud. Tipo: gráfco arco</h3>
-  <svg width="300" height="300" viewBox="0 0 300 300">
+  <svg width="300" height="300" viewBox="-100 -100 200 200">
     <path
       d={arcGenerator({
         startAngle: 0,
@@ -118,7 +118,6 @@
       fill="black"
       stroke="black"
       stroke-width="3"
-      transform="translate(150, 150)"
     />
   </svg>
 </main>
