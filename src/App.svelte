@@ -1,40 +1,27 @@
 <script>
-  import * as d3 from "d3"
-  import Waffle from "./Waffle.svelte"
 
-  // import person from "/images/person.png"
+  import * as d3 from "d3"
+  import Waffle from "./lib/Waffle.svelte"
+  import IrregularPath from "./lib/IrregularPath.svelte"
 
   let numbers = [5, 18, 29, 37, 75]
   let numbersDivided5 = numbers.map(n => Math.floor(n / 5))
 
+
   function altura(n) {
-    let scale = d3.scaleLinear().domain(d3.extent(numbers)).range([15, 225])
+    let scale = d3
+      .scaleLinear()
+      .domain(d3.extent(numbers)) // extent returns [min, max]
+      .range([15, 225])
     return scale(n)
   }
 
-  function sides(n) {
-    let s = d3.scaleLinear().domain(d3.extent(numbers)).range([3, 12])
-    return s(n)
-  }
-
-  /* Polígonos */
-
-  function drawPolygon(numSides) {
-    // Define the radius of the polygon
-    const radius = 50
-    // Define the center of the polygon
-    const centerX = 100
-    const centerY = 100
-
-    // Calculate the points of the polygon
-    const points = d3.range(numSides).map(function (i) {
-      const angle = (i / numSides) * 2 * Math.PI
-      const x = centerX + radius * Math.cos(angle)
-      const y = centerY + radius * Math.sin(angle)
-      return [x, y]
-    })
-
-    return points.join(" ")
+  function alturaCoffe(n) {
+    let scale = d3
+      .scaleLinear()
+      .domain(d3.extent(numbers)) // extent returns [min, max]
+      .range([15, 225])
+    return scale(n)
   }
 
   function arcGenerator({startAngle, endAngle, innerRadius, outerRadius}) {
@@ -45,9 +32,37 @@
       outerRadius,
     })
   }
+
+
 </script>
 
 <main>
+
+  <IrregularPath />
+
+  <!-- 1. Canal: altura. Tipo: barras con divs -->
+  <h3 class="headline">Canal: altura. Tipo: barras con divs</h3>
+
+  <div class="column-wrapper">
+    <div class="column-coffe"></div>
+    <img class="cup-coffe" src="./images/coffe-cup-mask.png" alt="" />
+  </div>
+
+  
+  
+  <!-- <div class="iso__container">
+    {#each numbers as n}
+      <div class="coffe_container">
+        <div
+          style="height: {alturaCoffe(
+            n,
+          )}%; width: 50px; background-color: #ddd; margin: 10px"
+        ></div>
+        <img src="./images/coffe-cup-mask.png" alt="" />
+      </div>
+    {/each}
+  </div> -->
+
   <!-- ISOTYPE - Canal: altura -->
   <h3 class="headline">Dos magnitudes. Canal: longitud</h3>
   <div class="iso__container">
@@ -94,20 +109,10 @@
       {/each}
     </div>
   </div>
-  <!-- Poligonos - Canal: lados -->
-  <h3 class="headline">Set magnitudes. Canal: lados polígonos.</h3>
-  {#each numbers as n}
-    <svg height="200" width="200">
-      <polygon
-        points={drawPolygon(sides(n))}
-        style="fill:#ddd;stroke:red;stroke-width:1"
-      />
-    </svg>
-  {/each}
 
   <!-- Draw svg arc -->
   <h3 class="headline">Set magnitudes. Canal: longitud. Tipo: gráfco arco</h3>
-  <svg width="300" height="300" viewBox="-100 -100 200 200">
+  <svg width="300" height="300">
     <path
       d={arcGenerator({
         startAngle: 0,
@@ -118,11 +123,17 @@
       fill="black"
       stroke="black"
       stroke-width="3"
+      transform="translate(150, 150)"
     />
   </svg>
 </main>
 
 <style>
+  .column-coffe {
+    width: 50px;
+    height: 300px;
+    background-color: brown;
+  }
   .iso__container {
     display: flex;
     width: 300px;
