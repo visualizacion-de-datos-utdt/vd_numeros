@@ -11,7 +11,7 @@
     // longitud total del path
     pathLength = document.querySelector("#path").getTotalLength()
     // longitud total del path
-    let maxGap = pathLength - pathLength * numbers[0] / 100
+    let maxGap = pathLength - (pathLength * numbers[0]) / 100
     let minGap = 0
 
     // console.log("total path", pathLength)
@@ -25,41 +25,54 @@
         .range([maxGap, minGap])
       return scale(n)
     }
-
   })
 </script>
 
+<div class="hearts-container">
 {#each numbers as n}
-<svg width="100" height="100">
-  <!-- Corazón gris -->
-  <path
-  id="path"
-  d="M 10,30
+    <div>
+      <svg width="100" height="100">
+        <!-- Corazón gris -->
+        <path
+          id="path"
+          d="M 10,30
   A 20,20 0,0,1 50,30
   A 20,20 0,0,1 90,30
   Q 90,60 50,90
-  Q 10,60 10,30 z" 
-  fill="none"
-  stroke="#ccc"
-  stroke-width="10"
-  />
-  <!-- Corazón rojo -->
-  {#if pathLength}
-  <path
-    id="path"
-    d="M 10,30
+  Q 10,60 10,30 z"
+          fill="none"
+          stroke="#ccc"
+          stroke-width="10"
+        />
+        <!-- Corazón rojo -->
+        {#if pathLength}
+          <path
+            id="path"
+            d="M 10,30
     A 20,20 0,0,1 50,30
     A 20,20 0,0,1 90,30
     Q 90,60 50,90
-    Q 10,60 10,30 z" 
-    fill="none"
-    stroke="red"
-    stroke-width="10"
-    stroke-dasharray="{pathLength}"
-    stroke-dashoffset="{largo(n)}"
-  />
-  {/if}
-</svg>{/each}
+    Q 10,60 10,30 z"
+            fill="none"
+            stroke="red"
+            stroke-width="10"
+            stroke-dasharray={pathLength}
+            stroke-dashoffset={largo(n)}
+          />
+        {/if}
+      </svg>
+      <p class="number">{n}</p>
+    </div>
+    {/each}
+  </div>
 
-
-
+<style>
+  .hearts-container {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+  }
+  .number {
+    text-align: center;
+  }
+</style>
