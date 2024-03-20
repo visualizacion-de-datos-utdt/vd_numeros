@@ -1,7 +1,7 @@
 <script>
   import * as d3 from "d3"
 
-  let numbers = [10, 18, 29, 37, 160]
+  let numbers = [10, 25, 33, 62, 75, 100]
 
   function alturaColCoffe(n) {
     let scale = d3
