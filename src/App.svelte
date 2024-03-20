@@ -33,7 +33,6 @@
   
   <!-- 1. Canal: altura. Tipo: col con divs -->
   <h3 class="headline">Canal: altura. Tipo: columnas</h3>
-  
   <CoffeColumns />
 
   <!-- 1. Canal: altura. Tipo: col con divs -->
@@ -109,11 +108,6 @@
 </main>
 
 <style>
-  .column-coffe {
-    width: 50px;
-    height: 300px;
-    background-color: brown;
-  }
   .iso__container {
     display: flex;
     width: 300px;
