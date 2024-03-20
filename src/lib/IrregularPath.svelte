@@ -2,7 +2,7 @@
   import {onMount} from "svelte"
   import * as d3 from "d3"
 
-  let numbers = [10, 25, 30, 60, 70, 100]
+  let numbers = [10, 25, 30, 60, 70, 115]
   let pathLength
   let largo
 
@@ -11,7 +11,7 @@
     // longitud total del path
     pathLength = document.querySelector("#path").getTotalLength()
     // longitud total del path
-    let maxGap = pathLength - (pathLength * numbers[0]) / 100
+    let maxGap = pathLength - (pathLength * d3.min(numbers) / d3.max(numbers))
     let minGap = 0
 
     // console.log("total path", pathLength)

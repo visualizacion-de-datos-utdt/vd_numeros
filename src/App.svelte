@@ -3,20 +3,13 @@
   import * as d3 from "d3"
   import Waffle from "./lib/Waffle.svelte"
   import IrregularPath from "./lib/IrregularPath.svelte"
+  import CoffeColumns from "./lib/CoffeColumns.svelte"
 
   let numbers = [5, 18, 29, 37, 75]
   let numbersDivided5 = numbers.map(n => Math.floor(n / 5))
 
 
   function altura(n) {
-    let scale = d3
-      .scaleLinear()
-      .domain(d3.extent(numbers)) // extent returns [min, max]
-      .range([15, 225])
-    return scale(n)
-  }
-
-  function alturaCoffe(n) {
     let scale = d3
       .scaleLinear()
       .domain(d3.extent(numbers)) // extent returns [min, max]
@@ -37,38 +30,17 @@
 </script>
 
 <main>
+  
+  <!-- 1. Canal: altura. Tipo: col con divs -->
+  <h3 class="headline">Canal: altura. Tipo: columnas</h3>
+  
+  <CoffeColumns />
 
+  <!-- 1. Canal: altura. Tipo: col con divs -->
+  <h3 class="headline">Canal: longitud (path irregular)</h3>
   <IrregularPath />
+  <hr>
 
-  <!-- 1. Canal: altura. Tipo: barras con divs -->
-  <h3 class="headline">Canal: altura. Tipo: barras con divs</h3>
-
-  <div class="column-wrapper">
-    <div class="column-coffe"></div>
-    <img class="cup-coffe" src="./images/coffe-cup-mask.png" alt="" />
-  </div>
-
-  
-  
-  <!-- <div class="iso__container">
-    {#each numbers as n}
-      <div class="coffe_container">
-        <div
-          style="height: {alturaCoffe(
-            n,
-          )}%; width: 50px; background-color: #ddd; margin: 10px"
-        ></div>
-        <img src="./images/coffe-cup-mask.png" alt="" />
-      </div>
-    {/each}
-  </div> -->
-
-  <!-- ISOTYPE - Canal: altura -->
-  <h3 class="headline">Dos magnitudes. Canal: longitud</h3>
-  <div class="iso__container">
-    <img style="height: 75px" src="/images/person-iso.svg" alt="person" />
-    <img style="height: 150px" src="/images/person-iso.svg" alt="person" />
-  </div>
 
   <!-- Canal: altura -->
   <h3 class="headline">Set magnitudes. Canal: longitud</h3>
@@ -126,6 +98,14 @@
       transform="translate(150, 150)"
     />
   </svg>
+
+    <!-- ISOTYPE - Canal: altura -->
+    <h3 class="headline">Dos magnitudes. Canal: longitud</h3>
+    <div class="iso__container">
+      <img style="height: 75px" src="/images/person-iso.svg" alt="person" />
+      <img style="height: 150px" src="/images/person-iso.svg" alt="person" />
+    </div>
+  
 </main>
 
 <style>
