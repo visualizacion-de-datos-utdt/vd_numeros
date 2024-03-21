@@ -4,11 +4,6 @@
 
 ---
 
-### Waffle Chart
-
-![Alt text](waffle.png)
-
-### Waffle Chart HTML Structure
 
 ![Alt text](thumbnail.png)
 

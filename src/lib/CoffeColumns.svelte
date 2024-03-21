@@ -1,7 +1,7 @@
 <script>
   import * as d3 from "d3"
 
-  let numbers = [10, 18, 29, 37, 160]
+  export let numbers = []
 
   function alturaColCoffe(n) {
     let scale = d3
@@ -44,7 +44,7 @@
     right: 10%;
     bottom: 0;
     /* width: 100%; */
-    background-color: brown;
+    background-color: red;
   }
   .coffe {
     position: absolute;
