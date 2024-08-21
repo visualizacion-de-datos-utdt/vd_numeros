@@ -17,26 +17,21 @@
   }
 </script>
 
-<main>
+<main class="container">
+  <!-- ISOTYPE - Canal: altura -->
+  <h3 class="headline">Magnitudes. Canal: longitud</h3>
+  <div class="iso__container">
+    <img style="height: 75px" src="./images/person-iso.svg" alt="person" />
+    <img style="height: 150px" src="./images/person-iso.svg" alt="person" />
+  </div>
 
-    <!-- ISOTYPE - Canal: altura -->
-    <h3 class="headline">Magnitudes. Canal: longitud</h3>
-    <div class="iso__container">
-      <img style="height: 75px" src="/images/person-iso.svg" alt="person" />
-      <img style="height: 150px" src="/images/person-iso.svg" alt="person" />
-    </div>
-  
-    <hr>
-  
-
+  <hr />
 
   <!-- Canal: altura. Tipo: col con divs -->
   <h3 class="headline">Canal: altura. Tipo: columnas</h3>
   <CoffeColumns numbers={numbers} />
 
-  <hr>
-
-
+  <hr />
 
   <!-- Canal: altura -->
   <h3 class="headline">Magnitudes. Canal: longitud</h3>
@@ -44,7 +39,7 @@
     {#each numbers as n}
       <img
         style="height: {altura(n)}px; padding: 10px"
-        src="/images/person.png"
+        src="./images/person.png"
         alt="person"
       />
     {/each}
@@ -57,7 +52,6 @@
 
   <hr />
 
-
   <!-- Canal: longitud. Type: Isotype Chart  -->
   <h3 class="headline">Magnitudes. Canal: longitud. Tipo: gráfico Isotype</h3>
 
@@ -67,7 +61,7 @@
         {#each Array(n) as m}
           <img
             style="height: 50px; padding: 2px"
-            src="/images/person.png"
+            src="./images/person.png"
             alt="person"
           />
         {/each}
@@ -82,7 +76,7 @@
   <Waffles numbers={numbers} />
 
   <hr />
-  <!-- Draw svg arc -->
+<!-- Draw svg arc -->
   <h3 class="headline">Magnitudes. Canal: ángulo. Tipo: gráfico donas</h3>
   <Donas numbers={numbers} />
 
@@ -90,6 +84,12 @@
 </main>
 
 <style>
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
   .iso__container {
     display: flex;
     width: 300px;
