@@ -1,6 +1,7 @@
 <script>
   import * as d3 from "d3"
 
+  export let title = ""
   export let numbers = []
 
   function alturaColCoffe(n) {
@@ -13,6 +14,7 @@
 
 </script>
 
+<h3 class="headline">{title}</h3>
 
 <div class="coffes-container">
   {#each numbers as n}

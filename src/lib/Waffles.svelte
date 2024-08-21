@@ -1,8 +1,10 @@
 <script>
   import * as d3 from "d3"
   export let numbers = []
+  export let title = ""
 </script>
 
+<h3 class="headline">{title}</h3>
 <div class="waffles_container">
   {#each numbers as n}
 

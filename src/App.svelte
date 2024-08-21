@@ -24,13 +24,10 @@
     <img style="height: 75px" src="./images/person-iso.svg" alt="person" />
     <img style="height: 150px" src="./images/person-iso.svg" alt="person" />
   </div>
-
   <hr />
 
-  <!-- Canal: altura. Tipo: col con divs -->
-  <h3 class="headline">Canal: altura. Tipo: columnas</h3>
-  <CoffeColumns numbers={numbers} />
-
+  <!-- Cafés -->
+  <CoffeColumns numbers={numbers} title="Canal: altura. Tipo: columnas" />
   <hr />
 
   <!-- Canal: altura -->
@@ -44,12 +41,9 @@
       />
     {/each}
   </div>
-
   <hr />
 
-  <h3 class="headline">Canal: longitud (path irregular)</h3>
-  <IrregularPath />
-
+  <IrregularPath title="Canal: longitud (path irregular)" numbers={numbers} />
   <hr />
 
   <!-- Canal: longitud. Type: Isotype Chart  -->
@@ -69,18 +63,19 @@
       </div>
     {/each}
   </div>
-
   <hr />
-  <!-- Waffle - Canal: área -->
-  <h3 class="headline">Magnitudes. Canal: área. Tipo: gráfico waffle</h3>
-  <Waffles numbers={numbers} />
 
+  <!-- Waffles -->
+  <Waffles
+    numbers={numbers}
+    title="Magnitudes. Canal: área. Tipo: gráfico waffle"
+  />
   <hr />
-<!-- Draw svg arc -->
-  <h3 class="headline">Magnitudes. Canal: ángulo. Tipo: gráfico donas</h3>
-  <Donas numbers={numbers} />
 
+  <!-- Donas -->
+  <Donas numbers={numbers} title="Magnitudes. Canal: ángulo. Tipo: gráfico donas" />
   <hr />
+
 </main>
 
 <style>

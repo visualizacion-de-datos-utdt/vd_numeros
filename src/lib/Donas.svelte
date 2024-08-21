@@ -2,6 +2,7 @@
   import * as d3 from "d3"
 
   export let numbers = []
+  export let title = ""
 
   function arcGenerator({startAngle, endAngle, innerRadius, outerRadius}) {
     return d3.arc()({
@@ -13,6 +14,7 @@
   }
 </script>
 
+<h3 class="headline">{title}</h3>
 <div class="donas_container">
   {#each numbers as n}
     <div class="donas_wrapper">
