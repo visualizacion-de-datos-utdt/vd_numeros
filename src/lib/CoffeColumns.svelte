@@ -2,7 +2,7 @@
   import * as d3 from "d3"
 
   export let title = ""
-  export let numbers = []
+  export let numbers = ""
 
   function alturaColCoffe(n) {
     let scale = d3
@@ -12,6 +12,15 @@
     return scale(n)
   }
 
+  function color(number) {
+    let escala = d3.scaleLinear()
+      .domain([24, 98]) 
+      .range(["yellow", "red"])
+      
+    return escala(number)
+  }
+
+
 </script>
 
 <h3 class="headline">{title}</h3>
@@ -20,7 +29,7 @@
   {#each numbers as n}
   <div>
     <div class="column-wrapper">
-      <div class="column-coffe" style="height: {alturaColCoffe(n)}%;"></div>
+      <div class="column-coffe" style="height: {alturaColCoffe(n)}%; background-color: {color(n)}"></div>
       <img class="coffe" src="./images/coffe-cup-mask.svg" alt="">
     </div>
     <p class="number">{n}</p>
