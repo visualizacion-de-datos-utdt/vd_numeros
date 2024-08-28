@@ -8,14 +8,16 @@
 
   let numbers = [5, 18, 29, 75, 100]
 
-  /* Escala lineal para las alturas de los isotipos */
-  function altura(n) {
-    let scale = d3
-      .scaleLinear()
-      .domain([5, 100]) // [mínimo, máximo]
-      .range([15, 225]) // [altura_minima, altura_máxima]
-    return scale(n)
-  }
+  /* 
+    d3.scaleLinear() retorna una función,
+    la guardamos en altura
+    para las alturas de los isotipos
+  */
+
+  let altura = d3
+    .scaleLinear()
+    .domain([5, 100]) // [mínimo, máximo]
+    .range([15, 225]) // [altura_minima, altura_máxima]
 </script>
 
 <main class="container">

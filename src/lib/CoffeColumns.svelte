@@ -9,10 +9,16 @@
     la guardamos en alturaColCoffe
     para poder usarla en el template
   */
-  let alturaColCoffe = d3.scaleLinear()
-    .domain([0, d3.max(numbers)])
-    .range([0, 100])
-
+ let alturaColCoffe = d3.scaleLinear()
+ .domain([0, d3.max(numbers)])
+ .range([0, 100])
+ 
+ /* 
+   d3.scaleLinear() puede ser usada para
+   asignar colores a los elementos,
+   la guardamos en color
+   para poder usarla en el template
+ */
   let color =  d3.scaleLinear()
       .domain([24, 98]) 
       .range(["yellow", "red"])

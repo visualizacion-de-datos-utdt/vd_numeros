@@ -15,17 +15,10 @@
     let maxGap = pathLength - (pathLength * d3.min(numbers)) / d3.max(numbers)
     let minGap = 0
 
-    // console.log("total path", pathLength)
-    // console.log("maximo gap", maxGap)
-    // console.log("minimo gap", maxGap)
-
-    largo = function (n) {
-      let scale = d3
+    largo =  d3
         .scaleLinear()
         .domain(d3.extent(numbers)) // extent returns [min, max]
         .range([maxGap, minGap])
-      return scale(n)
-    }
   })
 </script>
 
