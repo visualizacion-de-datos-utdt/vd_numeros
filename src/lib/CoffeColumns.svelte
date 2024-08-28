@@ -4,22 +4,18 @@
   export let title = ""
   export let numbers = ""
 
-  function alturaColCoffe(n) {
-    let scale = d3
-      .scaleLinear()
-      .domain([0, d3.max(numbers)]) // extent returns [min, max]
-      .range([0, 100])
-    return scale(n)
-  }
+  /* 
+    d3.scaleLinear() retorna una función,
+    la guardamos en alturaColCoffe
+    para poder usarla en el template
+  */
+  let alturaColCoffe = d3.scaleLinear()
+    .domain([0, d3.max(numbers)])
+    .range([0, 100])
 
-  function color(number) {
-    let escala = d3.scaleLinear()
+  let color =  d3.scaleLinear()
       .domain([24, 98]) 
       .range(["yellow", "red"])
-      
-    return escala(number)
-  }
-
 
 </script>
 
